@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: #f0f2f5;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.flashcards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.flashcard {
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-front {
+  background: #4cafef;
+  color: white;
+}
+
+.card-back {
+  background: #ff7043;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Delete button inside card */
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: red;
+  border: none;
+  color: white;
+  font-size: 14px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.delete-btn:hover {
+  background: darkred;
+}
+
+.add-card {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.add-card input, .add-card button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.add-card button {
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+}
+
+.add-card button:hover {
+  background: #43a047;
+}
